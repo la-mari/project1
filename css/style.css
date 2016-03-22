@@ -1,0 +1,97 @@
+body {
+  width:100%;
+}
+
+.stage {
+  margin: 0 auto;
+  height: 400px;
+  width: 800px;
+  text-align: center;
+}
+
+button {
+  padding: 30px 64px;
+  font-size: 28px;
+  position: fixed;
+  border-radius: 100%;
+  background-color: red;
+  margin-left: 24%;
+}
+
+#playWar {
+  color: darkorange;
+  background-color: gold;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+.playWarOff {
+  z-index: -99;
+}
+
+.playWarOn {
+  z-index: 100;
+}
+
+#bottomBar {
+  background-color: grey;
+  height: 165px;
+  width: 100%;
+  margin-bottom:0px ;
+}
+
+#playerCardBox{
+
+}
+
+#stackList {
+  margin-top: 10px;
+  width: 30%;
+  height: 140px;
+  float: right;
+  overflow: scroll;
+}
+
+.cardBox {
+  display: inline-block;
+  width: 200px;
+  height: 320px;
+  background-color: blue;
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+#oppoStackSize{
+  display: relative;
+  float: right;
+  margin-top: 20px;
+}
+
+#playerStackSize {
+  display: inline-block;
+  width:200px;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+a.green.button {
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+/*  opacity: 0.6;
+  cursor: not-allowed;*/

@@ -2,12 +2,16 @@
 var faceValue;
 var wageredCards = [];
 
+var buttonToggle = function(){
+    $("#playWar").toggleClass("playWarOff");
+};
+
 //Setting up to play
 var makeDeck = function() {
 
   //Making the deck
     var Card = function(value, suit){
-      var faceValueText =['a Two', 'a Three', 'a Four','a Five', 'a Six', 'a Seven', 'an Eight', 'a Nine', 'a Ten', 'a Jack', 'a Queen', 'a King', 'an Ace'];
+      var faceValueText = ['a Two', 'a Three', 'a Four','a Five', 'a Six', 'a Seven', 'an Eight', 'a Nine', 'a Ten', 'a Jack', 'a Queen', 'a King', 'an Ace'];
       this.value = value;
       this.suit = suit;
       this.faceValue = faceValueText[value];
@@ -52,69 +56,82 @@ var playerDeck = gameDeck.splice(0,26);
 var oppoDeck = gameDeck;
 
 //Play a War
-var playWar = function(){
-  console.log('Player reveals ' + playerDeck[0].name);
-  console.log('Opponent reveals ' + oppoDeck[0].name);
+var playWar = function() {
+  console.log('Player reveals ' + playerDeck[4].name);
+  console.log('Opponent reveals ' + oppoDeck[4].name);
 
-  if (playerDeck[0].value > oppoDeck[0].value){
-    console.log('You won the battle! Phat lewt!!');
-    wageredCards.push(playerDeck[0]);
-    wageredCards.push(oppoDeck[0]);
+  $( '#stageText' ).text( 'Player reveals ' + playerDeck[4].name + ' and Opponent reveals ' + oppoDeck[4].name );
+
+  if (playerDeck[4].value > oppoDeck[4].value){
+    $( '#outcomeText' ).text( 'You won the battle!' );
+
+    buttonToggle();
+
+    console.log('You won the war! Phat lewt!!');
+
+    wageredCards.push(playerDeck[0], playerDeck[1], playerDeck[2], playerDeck[3], playerDeck[4]);
+    wageredCards.push(oppoDeck[0], oppoDeck[1], oppoDeck[2], oppoDeck[3], oppoDeck[4]);
 
     for (var i = 0; i < wageredCards.length; i++){
       playerDeck.push(wageredCards[i]);
     }
 
-    oppoDeck.splice(0, 4);
-    playerDeck.splice(0, 4);
+    oppoDeck.splice(0, 5);
+    playerDeck.splice(0, 5);
 
   }
 
-  else if (playerDeck[0].value < oppoDeck[0].value){
+  else if (playerDeck[4].value < oppoDeck[4].value){
+    $( '#outcomeText' ).text( 'You lost the war!' );
+
+    buttonToggle();
     console.log('You lost the battle! zomg');
-    wageredCards.push(playerDeck[0]);
-    wageredCards.push(oppoDeck[0]);
+    wageredCards.push(playerDeck[0], playerDeck[1], playerDeck[2], playerDeck[3], playerDeck[4]);
+    wageredCards.push(oppoDeck[0], oppoDeck[1], oppoDeck[2], oppoDeck[3], oppoDeck[4]);
 
     for (var index = 0; index < wageredCards.length; index++){
       oppoDeck.push(wageredCards[index]);
     }
 
-    oppoDeck.splice(0, 4);
-    playerDeck.splice(0, 4);
+    oppoDeck.splice(0, 5);
+    playerDeck.splice(0, 5);
 
   }
 
   else {
-    console.log('WAR!');
-    wageredCards.push(playerDeck[1], playerDeck[2], playerDeck[3]);
-    wageredCards.push(oppoDeck[1], oppoDeck[2], oppoDeck[3]);
-    wageredCards.push(playerDeck[0]);
-    wageredCards.push(oppoDeck[0]);
-    oppoDeck.splice(0, 1);
-    playerDeck.splice(0, 1);
-
-    $('#playButton').on('click', function(){
-      event.stopPropagation();
-      playHand();
-    });
-
+    console.log('DOUBLE WAR!');
+    buttonToggle();
+    oppoDeck.splice(0, 5);
+    playerDeck.splice(0, 5);
   }
 
   console.log(playerDeck, oppoDeck);
 
+  //Win condition
+  if (playerDeck.length > 49){
+    window.alert('you win!!');
+  } else if (oppoDeck.length > 49){
+    window.alert('you lose!!');
+  }
+
+  getNames();
+
+  $( '#stackList' ).text( nameDeck );
+  $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + ' cards' );
+  $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length + ' cards' );
 };
 
 //Play a battle
 var playHand = function(){
-var playerWin;
-var oppoWin;
+  var playerWin;
+  var oppoWin;
 
-//Changing the gamestate
-  console.log('Player reveals ' + playerDeck[0].name);
-  console.log('Opponent reveals ' + oppoDeck[0].name);
+  $( '#stageText' ).text( 'Player reveals ' + playerDeck[0].name + ' and Opponent reveals ' + oppoDeck[0].name );
+  $( '#playerCardBox' ).text( playerDeck[0].name );
+  $( '#oppoCardBox' ).text( oppoDeck[0].name );
 
   if (playerDeck[0].value > oppoDeck[0].value){
-    console.log('You won the battle!');
+    $( '#outcomeText' ).text( 'You won the battle!' );
     wageredCards.push(playerDeck[0]);
     wageredCards.push(oppoDeck[0]);
     playerDeck.push(wageredCards[0], wageredCards[1]);
@@ -124,7 +141,7 @@ var oppoWin;
   }
 
   else if (playerDeck[0].value < oppoDeck[0].value){
-    console.log('You lost the battle!');
+    $( '#outcomeText' ).text( 'You lost the battle!' );
     wageredCards.push(playerDeck[0]);
     wageredCards.push(oppoDeck[0]);
     oppoDeck.push(wageredCards[0], wageredCards[1]);
@@ -135,15 +152,29 @@ var oppoWin;
 
   else {
     console.log('WAR!');
-    wageredCards.push(playerDeck[1], playerDeck[2], playerDeck[3]);
-    wageredCards.push(oppoDeck[1], oppoDeck[2], oppoDeck[3]);
-    wageredCards.push(playerDeck[0]);
-    wageredCards.push(oppoDeck[0]);
-    oppoDeck.splice(0, 1);
-    playerDeck.splice(0, 1);
+    $( '#outcomeText' ).text( 'WAR!' );
+    buttonToggle();
   }
 
   console.log(playerDeck, oppoDeck);
+  if (playerDeck.length === 52){
+    alert.window('you win!!');
+  } else if (oppoDeck.length === 52){
+    alert.window('you lose!!');
+  }
+
+  //Win condition
+  if (playerDeck.length > 49){
+    alert.window('you win!!');
+  } else if (oppoDeck.length === 49){
+    window.alert('you lose!!');
+  }
+
+  getNames();
+
+  $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + ' cards' );
+  $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length + ' cards' );
+  $( '#stackList' ).text( nameDeck );
 };
 
 //Play button on screen
@@ -155,11 +186,21 @@ $('#playWar').on('click', function(){
   playWar();
 });
 
+//GUI
+$( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + ' cards' );
+$( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length + ' cards' );
+$( '#stackList' ).text( nameDeck );
 
+var nameDeck = [];
 
+var getNames = function(){
+  nameDeck = [];
+  for(var i = 0; i < playerDeck.length; i++){
+    nameDeck.push(playerDeck[i].name);
+  }
+};
 
-
-
+getNames();
 
 
 
