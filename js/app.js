@@ -11,7 +11,7 @@ var makeDeck = function() {
 
   //Making the deck
     var Card = function(value, suit){
-      var faceValueText = ['a Two', 'a Three', 'a Four','a Five', 'a Six', 'a Seven', 'an Eight', 'a Nine', 'a Ten', 'a Jack', 'a Queen', 'a King', 'an Ace'];
+      var faceValueText = [' Two', ' Three', ' Four',' Five', ' Six', ' Seven', ' Eight', ' Nine', ' Ten', ' Jack', ' Queen', ' King', ' Ace'];
       this.value = value;
       this.suit = suit;
       this.faceValue = faceValueText[value];
@@ -60,10 +60,10 @@ var playWar = function() {
   console.log('Player reveals ' + playerDeck[4].name);
   console.log('Opponent reveals ' + oppoDeck[4].name);
 
-  $( '#stageText' ).text( 'Player reveals ' + playerDeck[4].name + ' and Opponent reveals ' + oppoDeck[4].name );
+  $( '#stageText' ).text( 'Player shows ' + playerDeck[4].name + ' and Opponent shows ' + oppoDeck[4].name );
 
   if (playerDeck[4].value > oppoDeck[4].value){
-    $( '#outcomeText' ).text( 'You won the battle!' );
+    $( '#outcomeText' ).text( 'You won the war!' );
 
     buttonToggle();
 
@@ -126,7 +126,7 @@ var playHand = function(){
   var playerWin;
   var oppoWin;
 
-  $( '#stageText' ).text( 'Player reveals ' + playerDeck[0].name + ' and Opponent reveals ' + oppoDeck[0].name );
+  $( '#stageText' ).text( 'Player shows ' + playerDeck[0].name + ' and Opponent shows ' + oppoDeck[0].name );
   $( '#playerCardBox' ).text( playerDeck[0].name );
   $( '#oppoCardBox' ).text( oppoDeck[0].name );
 
