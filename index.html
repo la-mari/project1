@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>War!</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
@@ -8,24 +9,34 @@
 <body>
   <div id="oppoStackSize"></div>
   <div class="stage">
-    <h3>
-      <span id="stageText">wat r u bored or somethin?</span>
-    </h3>
     <h2>
-      <span id="outcomeText">HEY LET'S PLAY WAR</span>
+      <span id="outcomeText">WAR</span>
     </h2>
-    <div id="playerCardBox" class="cardBox"><div id="playerValImg" class="valueImg"></div><div id="playerSuitImg" class="suitImg"></div></div>
-    <div id="oppoCardBox" class="cardBox"><div id="oppoValImg" class="valueImg"></div><div id="oppoSuitImg" class="suitImg"></div>
+    <h4>
+      <span id="stageText">a true game of cunning and skill</span>
+    </h4>
+    <div id="wagerContainer">
+      <div id="wagerHeader">Winner Gets:</div>
+      <div id="wageredCardList">
+        <div id="playerWagerList"></div>
+        <div id="oppoWagerList"></div>
+      </div>
+    </div><!-- /#wagerContainer-->
+    <div id="playerCardBox" class="cardBox">
+      <div id="playerValImg" class="valueImg"></div>
+      <div id="playerSuitImg" class="suitImg"></div>
+    </div>
+    <div id="oppoCardBox" class="cardBox">
+      <div id="oppoValImg" class="valueImg"></div>
+      <div id="oppoSuitImg" class="suitImg"></div>
   </div>
   <div id="bottomBar">
     <p id="playerStackSize"></p>
     <button type="button" id="playBattle">Play Card</button>
-    <button type="button" id="playWar" class="playWarOff">PLAY WAR</button>
+    <button type="button" id="playWar" class="playWarOff">Play WAR</button>
     <div id="stackList">
-
     </div>
   </div>
-  <script src="js/app.js">
-  </script>
+  <script src="js/app.js"></script>
 </body>
 </html>
