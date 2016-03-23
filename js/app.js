@@ -61,6 +61,83 @@ var oppoDeck = gameDeck;
 
 //Play a War
 var playWar = function() {
+        //suits and value image swapping
+  if(playerDeck[4].suit === 'Spades'){
+    $("#playerSuitImg").attr("src", "spades.jpg");
+  } else if (playerDeck[4].suit === 'Diamonds'){
+    $("#playerSuitImg").attr("src", "diamonds.jpg");
+  } else if (playerDeck[4].suit === 'Clubs'){
+    $("#playerSuitImg").attr("src", "clubs.png");
+  } else if (playerDeck[4].suit === 'Hearts'){
+    $("#playerSuitImg").attr("src", "hearts.png");
+  }
+
+  if(playerDeck[4].value === 0){
+    $("#playerValImg").attr("src", "two.png");
+  } else if (playerDeck[4].value === 1){
+    $("#playerValImg").attr("src", "three.png");
+  } else if (playerDeck[4].value === 2){
+    $("#playerValImg").attr("src", "four.png");
+  } else if (playerDeck[4].value === 3){
+    $("#playerValImg").attr("src", "five.png");
+  }else if (playerDeck[4].value === 4){
+    $("#playerValImg").attr("src", "six.jpg");
+  } else if (playerDeck[4].value === 5){
+    $("#playerValImg").attr("src", "seven.jpg");
+  } else if (playerDeck[4].value === 6){
+    $("#playerValImg").attr("src", "eight.jpg");
+  }else if (playerDeck[4].value === 7){
+    $("#playerValImg").attr("src", "nine.png");
+  } else if (playerDeck[4].value === 8){
+    $("#playerValImg").attr("src", "ten.png");
+  } else if (playerDeck[4].value === 9){
+    $("#playerValImg").attr("src", "jack.png");
+  }else if (playerDeck[4].value === 10){
+    $("#playerValImg").attr("src", "queen.jpg");
+  } else if (playerDeck[4].value === 11){
+    $("#playerValImg").attr("src", "king.jpg");
+  }else if (playerDeck[4].value === 12){
+    $("#playerValImg").attr("src", "ace.jpg");
+  }
+
+  if(oppoDeck[4].suit === 'Spades'){
+    $("#oppoSuitImg").attr("src", "spades.jpg");
+  } else if (oppoDeck[4].suit === 'Diamonds'){
+    $("#oppoSuitImg").attr("src", "diamonds.jpg");
+  } else if (oppoDeck[4].suit === 'Clubs'){
+    $("#oppoSuitImg").attr("src", "clubs.png");
+  } else if (oppoDeck[4].suit === 'Hearts'){
+    $("#oppoSuitImg").attr("src", "hearts.png");
+  }
+
+    if(oppoDeck[4].value === 0){
+    $("#oppoValImg").attr("src", "two.png");
+  } else if (oppoDeck[4].value === 1){
+    $("#oppoValImg").attr("src", "three.png");
+  } else if (oppoDeck[4].value === 2){
+    $("#oppoValImg").attr("src", "four.png");
+  } else if (oppoDeck[4].value === 3){
+    $("#oppoValImg").attr("src", "five.png");
+  }else if (oppoDeck[4].value === 4){
+    $("#oppoValImg").attr("src", "six.jpg");
+  } else if (oppoDeck[4].value === 5){
+    $("#oppoValImg").attr("src", "seven.jpg");
+  } else if (oppoDeck[4].value === 6){
+    $("#oppoValImg").attr("src", "eight.jpg");
+  }else if (oppoDeck[4].value === 7){
+    $("#oppoValImg").attr("src", "nine.png");
+  } else if (oppoDeck[4].value === 8){
+    $("#oppoValImg").attr("src", "ten.png");
+  } else if (oppoDeck[4].value === 9){
+    $("#oppoValImg").attr("src", "jack.png");
+  }else if (oppoDeck[4].value === 10){
+    $("#oppoValImg").attr("src", "queen.jpg");
+  } else if (oppoDeck[4].value === 11){
+    $("#oppoValImg").attr("src", "king.jpg");
+  }else if (oppoDeck[4].value === 12){
+    $("#oppoValImg").attr("src", "ace.jpg");
+  }
+
   if (playerDeck.length >= 5 && oppoDeck.length >= 5){
     console.log('Player reveals ' + playerDeck[4].name);
     console.log('Opponent reveals ' + oppoDeck[4].name);
@@ -155,12 +232,90 @@ var playHand = function(){
   var playerWin;
   var oppoWin;
 
+        //suits and value image swapping
+  if(playerDeck[0].suit === 'Spades'){
+    $("#playerSuitImg").attr("src", "spades.jpg");
+  } else if (playerDeck[0].suit === 'Diamonds'){
+    $("#playerSuitImg").attr("src", "diamonds.jpg");
+  } else if (playerDeck[0].suit === 'Clubs'){
+    $("#playerSuitImg").attr("src", "clubs.png");
+  } else if (playerDeck[0].suit === 'Hearts'){
+    $("#playerSuitImg").attr("src", "hearts.png");
+  }
+
+  if(playerDeck[0].value === 0){
+    $("#playerValImg").attr("src", "two.png");
+  } else if (playerDeck[0].value === 1){
+    $("#playerValImg").attr("src", "three.png");
+  } else if (playerDeck[0].value === 2){
+    $("#playerValImg").attr("src", "four.png");
+  } else if (playerDeck[0].value === 3){
+    $("#playerValImg").attr("src", "five.png");
+  }else if (playerDeck[0].value === 4){
+    $("#playerValImg").attr("src", "six.jpg");
+  } else if (playerDeck[0].value === 5){
+    $("#playerValImg").attr("src", "seven.jpg");
+  } else if (playerDeck[0].value === 6){
+    $("#playerValImg").attr("src", "eight.jpg");
+  }else if (playerDeck[0].value === 7){
+    $("#playerValImg").attr("src", "nine.png");
+  } else if (playerDeck[0].value === 8){
+    $("#playerValImg").attr("src", "ten.png");
+  } else if (playerDeck[0].value === 9){
+    $("#playerValImg").attr("src", "jack.png");
+  }else if (playerDeck[0].value === 10){
+    $("#playerValImg").attr("src", "queen.jpg");
+  } else if (playerDeck[0].value === 11){
+    $("#playerValImg").attr("src", "king.jpg");
+  }else if (playerDeck[0].value === 12){
+    $("#playerValImg").attr("src", "ace.jpg");
+  }
+
+  if(oppoDeck[0].suit === 'Spades'){
+    $("#oppoSuitImg").attr("src", "spades.jpg");
+  } else if (oppoDeck[0].suit === 'Diamonds'){
+    $("#oppoSuitImg").attr("src", "diamonds.jpg");
+  } else if (oppoDeck[0].suit === 'Clubs'){
+    $("#oppoSuitImg").attr("src", "clubs.png");
+  } else if (oppoDeck[0].suit === 'Hearts'){
+    $("#oppoSuitImg").attr("src", "hearts.png");
+  }
+
+    if(oppoDeck[0].value === 0){
+    $("#oppoValImg").attr("src", "two.png");
+  } else if (oppoDeck[0].value === 1){
+    $("#oppoValImg").attr("src", "three.png");
+  } else if (oppoDeck[0].value === 2){
+    $("#oppoValImg").attr("src", "four.png");
+  } else if (oppoDeck[0].value === 3){
+    $("#oppoValImg").attr("src", "five.png");
+  }else if (oppoDeck[0].value === 4){
+    $("#oppoValImg").attr("src", "six.jpg");
+  } else if (oppoDeck[0].value === 5){
+    $("#oppoValImg").attr("src", "seven.jpg");
+  } else if (oppoDeck[0].value === 6){
+    $("#oppoValImg").attr("src", "eight.jpg");
+  }else if (oppoDeck[0].value === 7){
+    $("#oppoValImg").attr("src", "nine.png");
+  } else if (oppoDeck[0].value === 8){
+    $("#oppoValImg").attr("src", "ten.png");
+  } else if (oppoDeck[0].value === 9){
+    $("#oppoValImg").attr("src", "jack.png");
+  }else if (oppoDeck[0].value === 10){
+    $("#oppoValImg").attr("src", "queen.jpg");
+  } else if (oppoDeck[0].value === 11){
+    $("#oppoValImg").attr("src", "king.jpg");
+  }else if (oppoDeck[0].value === 12){
+    $("#oppoValImg").attr("src", "ace.jpg");
+  }
+
   $( '#stageText' ).text( 'Player shows ' + playerDeck[0].name + ' and Opponent shows ' + oppoDeck[0].name );
+
+
   // $( '#playerCardBox' ).text( playerDeck[0].name );
   // $( '#oppoCardBox' ).text( oppoDeck[0].name );
 
   if (playerDeck[0].value > oppoDeck[0].value){
-        $('.suitImg').attr('src', '../spade.png')
     $( '#outcomeText' ).text( 'You won the battle!' );
     wageredCards.push(playerDeck[0]);
     wageredCards.push(oppoDeck[0]);
@@ -174,7 +329,6 @@ var playHand = function(){
   }
 
   else if (playerDeck[0].value < oppoDeck[0].value){
-        $('.suitImg').attr('src', '../spade.png')
     $( '#outcomeText' ).text( 'You lost the battle!' );
     wageredCards.push(playerDeck[0]);
     wageredCards.push(oppoDeck[0]);
@@ -272,6 +426,7 @@ var getNames = function(){
 };
 
 getNames();
+
 
 
 
