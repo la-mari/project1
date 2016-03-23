@@ -9,12 +9,14 @@ var buttonToggle = function(){
 };
 
 //Making the deck
-var Card = function(value, suit){
+var Card = function(value, suit, name, suitIcon){
   var faceValueText = [' Two', ' Three', ' Four',' Five', ' Six', ' Seven', ' Eight', ' Nine', ' Ten', ' Jack', ' Queen', ' King', ' Ace'];
   this.value = value;
   this.suit = suit;
   this.faceValue = faceValueText[value];
-  this.name = this.faceValue + ' of ' + this.suit;
+  this.name = name;
+  this.icon = suitIcon;
+  this.display = this.name + this.icon;
 };
 
 //Shuffling the deck
@@ -44,7 +46,11 @@ var makeDeck = function() {
 
   for (var i = 0; i < 13; i++){
     for (var j = 0; j < suits.length; j++){
-      gameDeck.push( new Card(i, suits[j]) );
+      var cardNames = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+      var k = cardNames[i];
+      var suitIcons = ['♥', '♣', '♠', '♦'];
+      var l = suitIcons[j];
+      gameDeck.push( new Card(i, suits[j], k, l) );
     }
   }
 
@@ -62,79 +68,99 @@ var oppoDeck = gameDeck;
 //Play a War
 var playWar = function() {
         //suits and value image swapping
-  if(playerDeck[4].suit === 'Spades'){
+  if(playerDeck[0].suit === 'Spades'){
     $("#playerSuitImg").attr("src", "spades.jpg");
-  } else if (playerDeck[4].suit === 'Diamonds'){
+  } else if (playerDeck[0].suit === 'Diamonds'){
     $("#playerSuitImg").attr("src", "diamonds.jpg");
-  } else if (playerDeck[4].suit === 'Clubs'){
+  } else if (playerDeck[0].suit === 'Clubs'){
     $("#playerSuitImg").attr("src", "clubs.png");
-  } else if (playerDeck[4].suit === 'Hearts'){
+  } else if (playerDeck[0].suit === 'Hearts'){
     $("#playerSuitImg").attr("src", "hearts.png");
   }
 
-  if(playerDeck[4].value === 0){
+    if(playerDeck[0].suit === 'Spades'){
+    $("#playerSuitImg2").attr("src", "spades.jpg");
+  } else if (playerDeck[0].suit === 'Diamonds'){
+    $("#playerSuitImg2").attr("src", "diamonds.jpg");
+  } else if (playerDeck[0].suit === 'Clubs'){
+    $("#playerSuitImg2").attr("src", "clubs.png");
+  } else if (playerDeck[0].suit === 'Hearts'){
+    $("#playerSuitImg2").attr("src", "hearts.png");
+  }
+
+  if(playerDeck[0].value === 0){
     $("#playerValImg").attr("src", "two.png");
-  } else if (playerDeck[4].value === 1){
+  } else if (playerDeck[0].value === 1){
     $("#playerValImg").attr("src", "three.png");
-  } else if (playerDeck[4].value === 2){
+  } else if (playerDeck[0].value === 2){
     $("#playerValImg").attr("src", "four.png");
-  } else if (playerDeck[4].value === 3){
+  } else if (playerDeck[0].value === 3){
     $("#playerValImg").attr("src", "five.png");
-  }else if (playerDeck[4].value === 4){
+  }else if (playerDeck[0].value === 4){
     $("#playerValImg").attr("src", "six.jpg");
-  } else if (playerDeck[4].value === 5){
+  } else if (playerDeck[0].value === 5){
     $("#playerValImg").attr("src", "seven.jpg");
-  } else if (playerDeck[4].value === 6){
+  } else if (playerDeck[0].value === 6){
     $("#playerValImg").attr("src", "eight.jpg");
-  }else if (playerDeck[4].value === 7){
+  }else if (playerDeck[0].value === 7){
     $("#playerValImg").attr("src", "nine.png");
-  } else if (playerDeck[4].value === 8){
+  } else if (playerDeck[0].value === 8){
     $("#playerValImg").attr("src", "ten.png");
-  } else if (playerDeck[4].value === 9){
+  } else if (playerDeck[0].value === 9){
     $("#playerValImg").attr("src", "jack.png");
-  }else if (playerDeck[4].value === 10){
+  }else if (playerDeck[0].value === 10){
     $("#playerValImg").attr("src", "queen.jpg");
-  } else if (playerDeck[4].value === 11){
+  } else if (playerDeck[0].value === 11){
     $("#playerValImg").attr("src", "king.jpg");
-  }else if (playerDeck[4].value === 12){
+  }else if (playerDeck[0].value === 12){
     $("#playerValImg").attr("src", "ace.jpg");
   }
 
-  if(oppoDeck[4].suit === 'Spades'){
+  if(oppoDeck[0].suit === 'Spades'){
     $("#oppoSuitImg").attr("src", "spades.jpg");
-  } else if (oppoDeck[4].suit === 'Diamonds'){
+  } else if (oppoDeck[0].suit === 'Diamonds'){
     $("#oppoSuitImg").attr("src", "diamonds.jpg");
-  } else if (oppoDeck[4].suit === 'Clubs'){
+  } else if (oppoDeck[0].suit === 'Clubs'){
     $("#oppoSuitImg").attr("src", "clubs.png");
-  } else if (oppoDeck[4].suit === 'Hearts'){
+  } else if (oppoDeck[0].suit === 'Hearts'){
     $("#oppoSuitImg").attr("src", "hearts.png");
   }
 
-    if(oppoDeck[4].value === 0){
+  if(oppoDeck[0].suit === 'Spades'){
+    $("#oppoSuitImg2").attr("src", "spades.jpg");
+  } else if (oppoDeck[0].suit === 'Diamonds'){
+    $("#oppoSuitImg2").attr("src", "diamonds.jpg");
+  } else if (oppoDeck[0].suit === 'Clubs'){
+    $("#oppoSuitImg2").attr("src", "clubs.png");
+  } else if (oppoDeck[0].suit === 'Hearts'){
+    $("#oppoSuitImg2").attr("src", "hearts.png");
+  }
+
+    if(oppoDeck[0].value === 0){
     $("#oppoValImg").attr("src", "two.png");
-  } else if (oppoDeck[4].value === 1){
+  } else if (oppoDeck[0].value === 1){
     $("#oppoValImg").attr("src", "three.png");
-  } else if (oppoDeck[4].value === 2){
+  } else if (oppoDeck[0].value === 2){
     $("#oppoValImg").attr("src", "four.png");
-  } else if (oppoDeck[4].value === 3){
+  } else if (oppoDeck[0].value === 3){
     $("#oppoValImg").attr("src", "five.png");
-  }else if (oppoDeck[4].value === 4){
+  }else if (oppoDeck[0].value === 4){
     $("#oppoValImg").attr("src", "six.jpg");
-  } else if (oppoDeck[4].value === 5){
+  } else if (oppoDeck[0].value === 5){
     $("#oppoValImg").attr("src", "seven.jpg");
-  } else if (oppoDeck[4].value === 6){
+  } else if (oppoDeck[0].value === 6){
     $("#oppoValImg").attr("src", "eight.jpg");
-  }else if (oppoDeck[4].value === 7){
+  }else if (oppoDeck[0].value === 7){
     $("#oppoValImg").attr("src", "nine.png");
-  } else if (oppoDeck[4].value === 8){
+  } else if (oppoDeck[0].value === 8){
     $("#oppoValImg").attr("src", "ten.png");
-  } else if (oppoDeck[4].value === 9){
+  } else if (oppoDeck[0].value === 9){
     $("#oppoValImg").attr("src", "jack.png");
-  }else if (oppoDeck[4].value === 10){
+  }else if (oppoDeck[0].value === 10){
     $("#oppoValImg").attr("src", "queen.jpg");
-  } else if (oppoDeck[4].value === 11){
+  } else if (oppoDeck[0].value === 11){
     $("#oppoValImg").attr("src", "king.jpg");
-  }else if (oppoDeck[4].value === 12){
+  }else if (oppoDeck[0].value === 12){
     $("#oppoValImg").attr("src", "ace.jpg");
   }
 
@@ -142,13 +168,13 @@ var playWar = function() {
     console.log('Player reveals ' + playerDeck[4].name);
     console.log('Opponent reveals ' + oppoDeck[4].name);
 
-    $( '#stageText' ).text( 'Player shows ' + playerDeck[4].name + ' and Opponent shows ' + oppoDeck[4].name );
+    $( '#stageText' ).text( 'Player shows ' + playerDeck[4].faceValue + ' of ' + playerDeck[4].suit + ' and Opponent shows ' + oppoDeck[4].faceValue + ' of ' + oppoDeck[4].suit );
 
     if (playerDeck[4].value > oppoDeck[4].value){
       $( '#outcomeText' ).text( 'You won the war!' );
 
-      $( '#playerWagerList' ).append( ', ' + wageredCards[8].name );
-      $( '#oppoWagerList' ).append( ', ' + wageredCards[9].name );
+      $( '#playerWagerList' ).append( ', ' + wageredCards[8].display );
+      $( '#oppoWagerList' ).append( ', ' + wageredCards[9].display );
       console.log('You won the war! Phat lewt!!');
 
       for (var i = 0; i < wageredCards.length; i++){
@@ -157,14 +183,14 @@ var playWar = function() {
 
       buttonToggle();
       wageredCards = [];
-      playerPoints++;
+      playerPoints = playerPoints + 5;
     }
 
     else if (playerDeck[4].value < oppoDeck[4].value){
       $( '#outcomeText' ).text( 'You lost the war!' );
 
-      $( '#playerWagerList' ).append( ', ' + wageredCards[8].name );
-      $( '#oppoWagerList' ).append( ', ' + wageredCards[9].name );
+      $( '#playerWagerList' ).append( ', ' + wageredCards[8].display );
+      $( '#oppoWagerList' ).append( ', ' + wageredCards[9].display );
       console.log('You lost the battle! zomg');
 
       for (var index = 0; index < wageredCards.length; index++){
@@ -173,7 +199,7 @@ var playWar = function() {
 
       buttonToggle();
       wageredCards = [];
-      oppoPoints++;
+      oppoPoints = oppoPoints + 5;
     }
 
     else {
@@ -222,7 +248,11 @@ var playWar = function() {
 
   getNames();
 
-  $( '#stackList' ).text( nameDeck );
+  $( '#stackList' ).text( playerDeck[0].display );
+  for (var i = 1; i < playerDeck.length; i++){
+    $( '#stackList' ).append( ', ' + playerDeck[i].display );
+  }
+
   $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + ' cards' );
   $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length + ' cards' );
 };
@@ -241,6 +271,16 @@ var playHand = function(){
     $("#playerSuitImg").attr("src", "clubs.png");
   } else if (playerDeck[0].suit === 'Hearts'){
     $("#playerSuitImg").attr("src", "hearts.png");
+  }
+
+    if(playerDeck[0].suit === 'Spades'){
+    $("#playerSuitImg2").attr("src", "spades.jpg");
+  } else if (playerDeck[0].suit === 'Diamonds'){
+    $("#playerSuitImg2").attr("src", "diamonds.jpg");
+  } else if (playerDeck[0].suit === 'Clubs'){
+    $("#playerSuitImg2").attr("src", "clubs.png");
+  } else if (playerDeck[0].suit === 'Hearts'){
+    $("#playerSuitImg2").attr("src", "hearts.png");
   }
 
   if(playerDeck[0].value === 0){
@@ -281,6 +321,16 @@ var playHand = function(){
     $("#oppoSuitImg").attr("src", "hearts.png");
   }
 
+  if(oppoDeck[0].suit === 'Spades'){
+    $("#oppoSuitImg2").attr("src", "spades.jpg");
+  } else if (oppoDeck[0].suit === 'Diamonds'){
+    $("#oppoSuitImg2").attr("src", "diamonds.jpg");
+  } else if (oppoDeck[0].suit === 'Clubs'){
+    $("#oppoSuitImg2").attr("src", "clubs.png");
+  } else if (oppoDeck[0].suit === 'Hearts'){
+    $("#oppoSuitImg2").attr("src", "hearts.png");
+  }
+
     if(oppoDeck[0].value === 0){
     $("#oppoValImg").attr("src", "two.png");
   } else if (oppoDeck[0].value === 1){
@@ -309,7 +359,7 @@ var playHand = function(){
     $("#oppoValImg").attr("src", "ace.jpg");
   }
 
-  $( '#stageText' ).text( 'Player shows ' + playerDeck[0].name + ' and Opponent shows ' + oppoDeck[0].name );
+    $( '#stageText' ).text( 'Player shows ' + playerDeck[4].faceValue + ' of ' + playerDeck[4].suit + ' and Opponent shows ' + oppoDeck[4].faceValue + ' of ' + oppoDeck[4].suit );
 
 
   // $( '#playerCardBox' ).text( playerDeck[0].name );
@@ -319,8 +369,8 @@ var playHand = function(){
     $( '#outcomeText' ).text( 'You won the battle!' );
     wageredCards.push(playerDeck[0]);
     wageredCards.push(oppoDeck[0]);
-    $( '#playerWagerList' ).text( wageredCards[0].name );
-    $( '#oppoWagerList' ).text( wageredCards[1].name );
+    $( '#playerWagerList' ).text( wageredCards[0].display );
+    $( '#oppoWagerList' ).text( wageredCards[1].display );
     playerDeck.push(wageredCards[0], wageredCards[1]);
     oppoDeck.splice(0, 1);
     playerDeck.splice(0, 1);
@@ -332,8 +382,8 @@ var playHand = function(){
     $( '#outcomeText' ).text( 'You lost the battle!' );
     wageredCards.push(playerDeck[0]);
     wageredCards.push(oppoDeck[0]);
-    $( '#playerWagerList' ).text( wageredCards[0].name );
-    $( '#oppoWagerList' ).text( wageredCards[1].name );
+    $( '#playerWagerList' ).text( wageredCards[0].display );
+    $( '#oppoWagerList' ).text( wageredCards[1].display );
     oppoDeck.push(wageredCards[0], wageredCards[1]);
     oppoDeck.splice(0, 1);
     playerDeck.splice(0, 1);
@@ -347,14 +397,14 @@ var playHand = function(){
     if (playerDeck.length >= 5){
       wageredCards.push(playerDeck[0], playerDeck[1], playerDeck[2], playerDeck[3], playerDeck[4]);
       wageredCards.push(oppoDeck[0], oppoDeck[1], oppoDeck[2], oppoDeck[3], oppoDeck[4]);
-      $( '#playerWagerList' ).text( wageredCards[0].name + ',' );
-      $( '#playerWagerList' ).append( wageredCards[1].name + ',' );
-      $( '#playerWagerList' ).append( wageredCards[2].name + ',' );
-      $( '#playerWagerList' ).append( wageredCards[3].name );
-      $( '#oppoWagerList' ).text( wageredCards[4].name + ',' );
-      $( '#oppoWagerList' ).append( wageredCards[5].name + ',' );
-      $( '#oppoWagerList' ).append( wageredCards[6].name + ',' );
-      $( '#oppoWagerList' ).append( wageredCards[7].name );
+      $( '#playerWagerList' ).text( wageredCards[0].display + ', ' );
+      $( '#playerWagerList' ).append( wageredCards[1].display + ', ' );
+      $( '#playerWagerList' ).append( wageredCards[2].display + ', ' );
+      $( '#playerWagerList' ).append( wageredCards[3].display );
+      $( '#oppoWagerList' ).text( wageredCards[4].display + ', ' );
+      $( '#oppoWagerList' ).append( wageredCards[5].display + ', ' );
+      $( '#oppoWagerList' ).append( wageredCards[6].display + ', ' );
+      $( '#oppoWagerList' ).append( wageredCards[7].display );
       buttonToggle();
     } else {
       console.log('grlglrlgrlgr');
@@ -399,7 +449,11 @@ var playHand = function(){
 
   $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + ' cards' );
   $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length + ' cards' );
-  $( '#stackList' ).text( nameDeck );
+
+  $( '#stackList' ).text( playerDeck[0].display );
+  for (var i = 1; i < playerDeck.length; i++){
+    $( '#stackList' ).append( ', ' + playerDeck[i].display );
+  }
 };
 
 //Play button on screen
@@ -414,7 +468,11 @@ $('#playWar').on('click', function(){
 //GUI
 $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + ' cards' );
 $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length + ' cards' );
-$( '#stackList' ).text( nameDeck );
+
+$( '#stackList' ).text( playerDeck[0].display );
+for (var i = 1; i < playerDeck.length; i++){
+    $( '#stackList' ).append( ', ' + playerDeck[i].display );
+}
 
 var nameDeck = [];
 
@@ -426,6 +484,7 @@ var getNames = function(){
 };
 
 getNames();
+
 
 
 

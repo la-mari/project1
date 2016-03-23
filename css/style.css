@@ -19,6 +19,7 @@ button {
   background-color: red;
   margin-top: 30px;
   margin-left: 25%;
+  opacity: 1.0;
 }
 
 #playWar {
@@ -53,23 +54,23 @@ margin-right: ;
   display: inline-block;
   width: 190px;
   height: 300px;
-  background-color: blue;
-  opacity: 0.6;
+  background-color: white;
   margin-top: 10px;
 }
 
-h2 {
+h1 {
   width: 400px;
   margin: 0 auto;
   padding-bottom: 10px;
+  margin-top: 30px;
+  padding: 5px;
+  background-color: grey;
 }
 
 h4 {
   width: 600px;
   margin: 0 auto;
-}
-
-#stageText{
+  padding-bottom: 40px;
 }
 
 #oppoStackSize{
@@ -160,13 +161,31 @@ h4 {
   margin-left: -80px;
   margin-top: 10px;
   float: left;
+  opacity: 1.0;
 }
 
 #oppoSuitImg {
   position: absolute;
   margin-left: 770px;
-  margin-top: -334px;
+  margin-top: -285px;
   float: left;
+  opacity: 1.0;
+}
+
+#playerSuitImg2 {
+  position: absolute;
+  margin-left: 445px;
+  margin-top: -65px;
+  float: left;
+  opacity: 1.0;
+}
+
+#oppoSuitImg2 {
+  position: absolute;
+  margin-left: 660px;
+  margin-top: -65px;
+  float: left;
+  opacity: 1.0;
 }
 
 #playerCardBox {
@@ -177,11 +196,63 @@ h4 {
   display: inline-block;
   position: absolute;
   margin-left: 660px;
-  margin-top: -334px;
+  margin-top: -285px;
 }
 
 #playerValImg {
-  margin-left: -111px;
+  margin-left: 0px;
+  margin-top: 50%;
+  opacity: 1.0;
 }
+
+#oppoValImg {
+  opacity: 1.0;
+  margin-left: 29%;
+  margin-top: 55%;
+
+}
+
+.flip-horizontal {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: fliph; /*IE*/
+    filter: fliph;
+}
+
+@media screen and (max-width: 980px) {
+    #bottomBar {
+        width: 94%;
+    }
+    #oppoCardBox {
+        width: 120px;
+        height: 180px;
+    }
+    #playerCardBox {
+        width: 120px;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #content, #sidebar {
+      width: auto;
+      float: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #header {
+      height: auto;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    #sidebar {
+      display: none;
+    }
+}
+
 /*  opacity: 0.6;
   cursor: not-allowed;*/
