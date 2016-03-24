@@ -9,6 +9,19 @@ var buttonToggle = function(){
     $("#playWar").toggleClass("playWarOff");
 };
 
+
+//Store
+var storeFxn = function(){
+  if(playerPoints >= 10){
+    $('#powerup1').on('click', function(){
+      pUp1 = true;
+      window.alert('Powerup purchased!');
+      playerPoints = playerPoints - 10;
+      $('#playerPointDisplay').text(playerPoints + ' points');
+    });
+  }
+};
+
 //Making the deck
 var Card = function(value, suit, name, suitIcon){
   var faceValueText = [' Two', ' Three', ' Four',' Five', ' Six', ' Seven', ' Eight', ' Nine', ' Ten', ' Jack', ' Queen', ' King', ' Ace'];
@@ -623,15 +636,6 @@ $('#storeThumbId').on('click', function(){
     $('#storeMenu').slideDown('slow');
     hidden = false;
   }
-
-$('#powerup1').on('click', function(){
-  pUp1 = true;
-  window.alert('Powerup purchased!');
-  playerPoints = playerPoints - 10;
-  $('#playerPointDisplay').text(playerPoints + ' points');
-  return playerPoints;
-});
-
 
 // hidden = true;
 
