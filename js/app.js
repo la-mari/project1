@@ -6,15 +6,23 @@ var oppoPoints = 0;
 var pUp1 = false;
 
 var buttonToggle = function(){
-    $("#playWar").toggleClass("playWarOff");
+  $("#playWar").toggleClass("playWarOff");
 };
 
 //Win condition
 var winTerms = function() {
-  if (playerDeck.length >= 52){
+  if (playerDeck.length === 52){
     window.alert('you win!!');
-  } else if (oppoDeck.length >= 52){
+  } else if (oppoDeck.length === 52){
     window.alert('you lose!!');
+  }
+  };
+
+var warFail = function() {
+  if (playerDeck.length <= 5){
+    window.alert('you lose!!');
+  } else if (oppoDeck.length <= 5){
+    window.alert('you win!!');
   }
 };
 
@@ -165,9 +173,9 @@ var oppoDeck = gameDeck;
 var playWar = function() {
         //suits and value image swapping
   if(playerDeck[0].suit === 'Spades'){
-    $("#playerSuitImg").attr("src", "spades.jpg");
+    $("#playerSuitImg").attr("src", "spades.png");
   } else if (playerDeck[0].suit === 'Diamonds'){
-    $("#playerSuitImg").attr("src", "diamonds.jpg");
+    $("#playerSuitImg").attr("src", "diamonds.png");
   } else if (playerDeck[0].suit === 'Clubs'){
     $("#playerSuitImg").attr("src", "clubs.png");
   } else if (playerDeck[0].suit === 'Hearts'){
@@ -175,9 +183,9 @@ var playWar = function() {
   }
 
     if(playerDeck[0].suit === 'Spades'){
-    $("#playerSuitImg2").attr("src", "spades.jpg");
+    $("#playerSuitImg2").attr("src", "spades.png");
   } else if (playerDeck[0].suit === 'Diamonds'){
-    $("#playerSuitImg2").attr("src", "diamonds.jpg");
+    $("#playerSuitImg2").attr("src", "diamonds.png");
   } else if (playerDeck[0].suit === 'Clubs'){
     $("#playerSuitImg2").attr("src", "clubs.png");
   } else if (playerDeck[0].suit === 'Hearts'){
@@ -213,9 +221,9 @@ var playWar = function() {
   }
 
   if(oppoDeck[0].suit === 'Spades'){
-    $("#oppoSuitImg").attr("src", "spades.jpg");
+    $("#oppoSuitImg").attr("src", "spades.png");
   } else if (oppoDeck[0].suit === 'Diamonds'){
-    $("#oppoSuitImg").attr("src", "diamonds.jpg");
+    $("#oppoSuitImg").attr("src", "diamonds.png");
   } else if (oppoDeck[0].suit === 'Clubs'){
     $("#oppoSuitImg").attr("src", "clubs.png");
   } else if (oppoDeck[0].suit === 'Hearts'){
@@ -223,9 +231,9 @@ var playWar = function() {
   }
 
   if(oppoDeck[0].suit === 'Spades'){
-    $("#oppoSuitImg2").attr("src", "spades.jpg");
+    $("#oppoSuitImg2").attr("src", "spades.png");
   } else if (oppoDeck[0].suit === 'Diamonds'){
-    $("#oppoSuitImg2").attr("src", "diamonds.jpg");
+    $("#oppoSuitImg2").attr("src", "diamonds.png");
   } else if (oppoDeck[0].suit === 'Clubs'){
     $("#oppoSuitImg2").attr("src", "clubs.png");
   } else if (oppoDeck[0].suit === 'Hearts'){
@@ -299,7 +307,9 @@ var playWar = function() {
     }
 
     else {
+      warFail();
       console.log('DOUBLE WAR!');
+      $( '#outcomeText' ).text(  'DOUBLE WAR!' );
       oppoDeck.splice(0, 5);
       playerDeck.splice(0, 5);
     }
@@ -360,44 +370,34 @@ var playWar = function() {
   if(lineStack < 5){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('_____');
+    $( '#playerStackSize' ).append('<li>__</li>');
   }else if(lineStack < 10){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('__________');
-  }else if(lineStack < 15){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('_______________');
+    $( '#playerStackSize' ).append('<li>_____</li>');
   }else if(lineStack < 20){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('____________________');
-  }else if(lineStack < 25){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('_________________________');
+    $( '#playerStackSize' ).append('<li>__________</li>');
   }else if(lineStack < 30){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('______________________________');
-  }else if(lineStack < 35){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('___________________________________');
+    $( '#playerStackSize' ).append('<li>__________ _____</li>');
   }else if(lineStack < 40){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('________________________________________');
-  }else if(lineStack < 45){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('_____________________________________________');
+    $( '#playerStackSize' ).append('<li>__________ __________</li>');
   }else if(lineStack < 50){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length+ '            ' );
+    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('Some text')('__________________________________________________');
+    $( '#playerStackSize' ).append('<li>__________ __________ _____<li>');
+  }else if(lineStack < 55){
+    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length );
+    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
+    $( '#playerStackSize' ).append('<li>__________ __________ __________<li>');
   }
+
+
 $('#stackList').each(function () {
   $(this).html($(this).html().replace(/(\♥)/g, '<span style="color: #ff0000;">$1</span>'));
 });
@@ -412,7 +412,6 @@ $('#oppoWagerList').each(function () {
   $(this).html($(this).html().replace(/(\♦)/g, '<span style="color: #ff0000;">$1</span>'));
 });
 
-winTerms();
 
 $('#playerPointDisplay').text(playerPoints + ' points');
 };
@@ -422,9 +421,9 @@ var playHand = function(){
 
         //suits and value image swapping
   if(playerDeck[0].suit === 'Spades'){
-    $("#playerSuitImg").attr("src", "spades.jpg");
+    $("#playerSuitImg").attr("src", "spades.png");
   } else if (playerDeck[0].suit === 'Diamonds'){
-    $("#playerSuitImg").attr("src", "diamonds.jpg");
+    $("#playerSuitImg").attr("src", "diamonds.png");
   } else if (playerDeck[0].suit === 'Clubs'){
     $("#playerSuitImg").attr("src", "clubs.png");
   } else if (playerDeck[0].suit === 'Hearts'){
@@ -432,9 +431,9 @@ var playHand = function(){
   }
 
     if(playerDeck[0].suit === 'Spades'){
-    $("#playerSuitImg2").attr("src", "spades.jpg");
+    $("#playerSuitImg2").attr("src", "spades.png");
   } else if (playerDeck[0].suit === 'Diamonds'){
-    $("#playerSuitImg2").attr("src", "diamonds.jpg");
+    $("#playerSuitImg2").attr("src", "diamonds.png");
   } else if (playerDeck[0].suit === 'Clubs'){
     $("#playerSuitImg2").attr("src", "clubs.png");
   } else if (playerDeck[0].suit === 'Hearts'){
@@ -470,9 +469,9 @@ var playHand = function(){
   }
 
   if(oppoDeck[0].suit === 'Spades'){
-    $("#oppoSuitImg").attr("src", "spades.jpg");
+    $("#oppoSuitImg").attr("src", "spades.png");
   } else if (oppoDeck[0].suit === 'Diamonds'){
-    $("#oppoSuitImg").attr("src", "diamonds.jpg");
+    $("#oppoSuitImg").attr("src", "diamonds.png");
   } else if (oppoDeck[0].suit === 'Clubs'){
     $("#oppoSuitImg").attr("src", "clubs.png");
   } else if (oppoDeck[0].suit === 'Hearts'){
@@ -480,9 +479,9 @@ var playHand = function(){
   }
 
   if(oppoDeck[0].suit === 'Spades'){
-    $("#oppoSuitImg2").attr("src", "spades.jpg");
+    $("#oppoSuitImg2").attr("src", "spades.png");
   } else if (oppoDeck[0].suit === 'Diamonds'){
-    $("#oppoSuitImg2").attr("src", "diamonds.jpg");
+    $("#oppoSuitImg2").attr("src", "diamonds.png");
   } else if (oppoDeck[0].suit === 'Clubs'){
     $("#oppoSuitImg2").attr("src", "clubs.png");
   } else if (oppoDeck[0].suit === 'Hearts'){
@@ -550,6 +549,7 @@ var playHand = function(){
   }
 
   else {
+  warFail();
     console.log('WAR!');
     $( '#outcomeText' ).text(  'WAR!' );
     if (playerDeck.length >= 5){
@@ -601,43 +601,31 @@ var playHand = function(){
   if(lineStack < 5){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('_____');
+    $( '#playerStackSize' ).append('<li>__</li>');
   }else if(lineStack < 10){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('__________');
-  }else if(lineStack < 15){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ _____</li>');
+    $( '#playerStackSize' ).append('<li>_____</li>');
   }else if(lineStack < 20){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ __________</li>');
-  }else if(lineStack < 25){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ __________ _____</li>');
+    $( '#playerStackSize' ).append('<li>__________</li>');
   }else if(lineStack < 30){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ __________ __________</li>');
-  }else if(lineStack < 35){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ __________ __________ _____</li>');
+    $( '#playerStackSize' ).append('<li>__________ _____</li>');
   }else if(lineStack < 40){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ __________ __________ __________</li>');
-  }else if(lineStack < 45){
-    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length + '            ' );
-    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('<li>__________ __________ __________ __________ _____</li>');
+    $( '#playerStackSize' ).append('<li>__________ __________</li>');
   }else if(lineStack < 50){
     $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length );
     $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
-    $( '#playerStackSize' ).append('Some text')('__________ __________ __________ __________ __________');
+    $( '#playerStackSize' ).append('<li>__________ __________ _____<li>');
+  }else if(lineStack < 55){
+    $( '#playerStackSize' ).text( 'Player stack: ' + playerDeck.length );
+    $( '#oppoStackSize' ).text( 'Computer stack: ' + oppoDeck.length );
+    $( '#playerStackSize' ).append('<li>__________ __________ __________<li>');
   }
 
   $( '#stackList' ).text( playerDeck[0].display );
@@ -719,7 +707,6 @@ winTerms();
 });
 
 storeFxn();
-winTerms();
 usePUp1();
 usePUp2();
 usePUp3();

@@ -97,18 +97,15 @@ h4 {
 #playerStackSize {
   float: left;
   margin-left: 20px;
-  width: 100px;
+  display: inline-block;
+  width: 120px;
   height: 100%;
   word-wrap: break-word;
 }
 
-ul {
-  display: inline-block;
-}
 
 li {
   list-style-type: none;
-  vertical-align: bottom;
 }
 
 .suitImg{
