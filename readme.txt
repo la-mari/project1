@@ -1,7 +1,5 @@
 Project 1: War
 
-A JavaScript "War" card game that can be played in web browsers.
-
 Game Rules:
  - Each player starts with 26 random cards taken from a 52 card deck
  - Each "battle", player and computer will reveal "top" card
@@ -10,3 +8,6 @@ Game Rules:
    - Both players wager their next 3 cards and play the fourth-on-deck
    - Winner collects all wagered/played cards
  - First player to collect all cards wins
+
+
+Link to game: http://georgest32.github.io/project1/
