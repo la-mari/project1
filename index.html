@@ -8,8 +8,12 @@
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 </head>
 <body>
-  <div id="pUp1Button"></div>
-  <div id="oppoStackSize"></div>
+  <div id="pUps">
+    <div class="hidden" id="pUp1Button">Pickpocket</div>
+    <div class="hidden" id="pUp2Button">Grand Theft Cardo</div>
+    <div class="hidden" id="pUp3Button">N U K E</div>
+  </div>
+  <div id="oppoStackSize" style= "color: white";></div>
   <div class="stage">
     <h1>
       <span id="outcomeText">WAR</span>
@@ -34,21 +38,21 @@
       <img id="oppoSuitImg" class="suitImg" src=""></div>
       <img id="oppoSuitImg2" class="suitImg" src=""></div>
   </div>
-  <a class="storeThumb" id="storeThumbId">Spend points here</a>
+  <a class="storeThumb" id="storeThumbId">Power-Up Store</a>
   <div id="storeMenu">
     <div id="powerup1" class="item">
-      This powerup costs 10 points
+      Pickpocket: steals 1 card
     </div>
     <div id="powerup2" class="item">
-      This powerup costs 25 points
+      Grand Theft Cardo: steals 3 cards
     </div>
     <div id="powerup3" class="item">
-      This powerup costs 50 points
+      NUKE: steals 10 cards
     </div>
   </div>
   <div id="bottomBar">
-    <p id="playerStackSize"></p>
-    <div id="playerPointDisplay">points</div>
+    <ul id="playerStackSize"></ul>
+    <div id="playerPointDisplay"><span id="pointsHeader">Points</span></div>
     <button type="button" id="playBattle">Play Card</button>
     <button type="button" id="playWar" class="playWarOff">Play WAR</button>
     <div id="stackList">

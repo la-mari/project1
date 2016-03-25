@@ -2,6 +2,7 @@ body {
   width:100%;
   background-image: url(../bgPic.jpg);
   background-size: 100%;
+  height: 100%;
 }
 
 .stage {
@@ -11,14 +12,20 @@ body {
   text-align: center;
 }
 
+#playBattle {
+  color: black;
+  text-decoration:
+}
+
 button {
+  font-weight: bold;
   padding: 40px 80px;
   font-size: 28px;
   position: fixed;
   border-radius: 100%;
-  background-color: red;
+  background-color: darkred;
   margin-top: 30px;
-  margin-left: 33%;
+  margin-left: 25%;
   opacity: 1.0;
 }
 
@@ -38,39 +45,46 @@ button {
 }
 
 #bottomBar {
-  background-color: grey;
-  position: fixed;
-  margin-top: 5%;
-  height: 165px;
-  width: 100%;
-  opacity: 0.85;
+    background-color: grey;
+    position: fixed;
+    height: 165px;
+    width: 100%;
+    opacity: 0.95;
+    position: absolute;
+    margin-top: 85px;
+    padding-bottom: 30px;
+
 }
 
 #playerCardBox{
-margin-right: ;
 }
 
 .cardBox {
   display: inline-block;
   width: 190px;
   height: 300px;
-  background-color: white;
+  background-color: rgba(245, 245, 245, 1);
   margin-top: 10px;
+  border-radius: 5%
 }
 
 h1 {
-  width: 400px;
+  margin-left: 50px;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 10px;
-  margin-top: 30px;
-  padding: 5px;
-  background-color: grey;
+  padding-top: 10px;
+  background-color: rgba(100, 0, 0, 0.65);
 }
 
 h4 {
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
-  padding-bottom: 40px;
+  padding-top:15px;
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  margin-bottom: 30px;
 }
 
 #oppoStackSize{
@@ -83,9 +97,18 @@ h4 {
 #playerStackSize {
   float: left;
   margin-left: 20px;
-  display: inline-block;
-  width:80px;
+  width: 100px;
+  height: 100%;
   word-wrap: break-word;
+}
+
+ul {
+  display: inline-block;
+}
+
+li {
+  list-style-type: none;
+  vertical-align: bottom;
 }
 
 .suitImg{
@@ -96,7 +119,7 @@ h4 {
 
 .valueImg {
   height: 60px;
-  width: 60px;
+  width: 50px;
   display: inline-block;
 }
 
@@ -129,6 +152,7 @@ h4 {
 }
 
 #playerWagerList {
+  vertical-align: top;
   width: 140px;
   height: 250px;
   position: static;
@@ -141,6 +165,7 @@ h4 {
 }
 
 #oppoWagerList {
+  vertical-align: top;
   width: 140px;
   height: 250px;
   position: static;
@@ -153,18 +178,20 @@ h4 {
 }
 
 #stackList {
+  background-color: white;
   font-size: 28px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-right: 40px;
   width: 25%;
   height: 140px;
   float: right;
   overflow: scroll;
+  margin-bottom: -20px;
 }
 
 #playerSuitImg {
   position: absolute;
-  margin-left: -70px;
+  margin-left: -180px;
   margin-top: 20px;
   float: left;
   opacity: 1.0;
@@ -172,24 +199,24 @@ h4 {
 
 #oppoSuitImg {
   position: absolute;
-  margin-left: 780px;
-  margin-top: -275px;
+  margin-left: 670px;
+  margin-top: -240px;
   float: left;
   opacity: 1.0;
 }
 
 #playerSuitImg2 {
   position: absolute;
-  margin-left: 455px;
-  margin-top: -55px;
+  margin-left: 565px;
+  margin-top: -20px;
   float: left;
   opacity: 1.0;
 }
 
 #oppoSuitImg2 {
   position: absolute;
-  margin-left: 670px;
-  margin-top: -55px;
+  margin-left: 780px;
+  margin-top: -20px;
   float: left;
   opacity: 1.0;
 }
@@ -202,7 +229,7 @@ h4 {
   display: inline-block;
   position: absolute;
   margin-left: 660px;
-  margin-top: -285px;
+  margin-top: -249px;
 }
 
 #playerValImg {
@@ -219,28 +246,25 @@ h4 {
 }
 
 #storeMenu {
+    line-height: 6;
+    text-align: center;
     display: none;
     float: right;
     width: 300px;
     height: 300px;
-    background-color: red;
+    background-color: black;
     margin-right: 101px;
-    margin-top: -333px;
-}
-
-#show a {
-    width:250px;
-    height: 75px;
-    display:block;
-    margin: 0;
-    cursor:pointer;
+    margin-top: -270px;
 }
 
 #storeThumbId {
-  background-color: red;
-  margin-left: 80%;
-  padding: 20px;
-  border-radius: 0%;
+    color: limegreen;
+    background-color: black;
+    margin-left: 85.5%;
+    padding: 20px;
+    border-radius: 0%;
+    position: absolute;
+    margin-top: 28px;
 }
 
 .item {
@@ -250,7 +274,7 @@ h4 {
 }
 
 #powerup1 {
-  background-color: green;
+  background-color: limegreen;
   margin-top: 5px;
   margin-bottom: 10px;
 }
@@ -261,18 +285,69 @@ h4 {
 }
 
 #powerup3 {
-  background-color: blue;
+  background-color: red;
   margin-bottom: 5px;
 }
 
 #playerPointDisplay {
+  border: solid;
+  border-width: 5px;
+  border-color: rgba(100, 100, 100, 1);
   height: 100px;
   width: 100px;
   position: absolute;
   margin-top: 30px;
   margin-left: 230px;
-  background-color: purple;
+  background-color: limegreen;
+  text-align: center;
+  line-height: 6;
+}
 
+#pUps {
+  position: absolute;
+  color: red;
+  text-align: center;
+  line-height: 6.5;
+}
+
+#pUp1Button {
+    vertical-align: center;
+
+  background-color: white;
+  height: 110px;
+  width: 110px;
+}
+
+#pUp2Button {
+  background-color: grey;
+  height: 110px;
+  width: 110px;
+}
+
+#pUp3Button {
+  background-color: black;
+  height: 110px;
+  width: 110px;
+}
+
+#pointsHeader{
+  padding-right: 30px;
+  padding-left: 30px;
+  color: #292929
+;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline-block;
+
+}
+
+#outcomeText {
+    margin-left: 120px;
 }
 
 @media screen and (max-width: 980px) {
