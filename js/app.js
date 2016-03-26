@@ -16,7 +16,7 @@ var winTerms = function() {
   } else if (oppoDeck.length === 52){
     window.alert('you lose!!');
   }
-  };
+}; //I tabbed your closing brace to the left
 
 var warFail = function() {
   if (playerDeck.length <= 5){
@@ -191,6 +191,8 @@ var playWar = function() {
   } else if (playerDeck[0].suit === 'Hearts'){
     $("#playerSuitImg2").attr("src", "img/hearts.png");
   }
+
+  //else if statements should be nested
 
   if(playerDeck[0].value === 0){
     $("#playerValImg").attr("src", "img/two.png");
@@ -547,6 +549,8 @@ var playHand = function(){
     wageredCards = [];
     oppoPoints++;
   }
+
+//you can implement a double war feature if you have time 
 
   else {
   warFail();
